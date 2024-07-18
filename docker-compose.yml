@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  app:
+    image: 381492033220.dkr.ecr.us-east-2.amazonaws.com/monii.landing-client:latest
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    env_file:
+      - .env
+    environment:
+      BASE_URL: ${BASE_URL}
+      VIRTUAL_HOST: monii.xyz
+      VIRTUAL_PORT: 3002
+      LETSENCRYPT_HOST: monii.xyz
+      LETSENCRYPT_EMAIL: hello@carlossanjuan.co
+    networks:
+      - web
+
+networks:
+  web:
+    external: true

@@ -6,6 +6,8 @@
 
 ## bienvenido
 
+/hero
+
 ```ts
 const hello: string = 'Hello world';
 ```
